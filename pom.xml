@@ -57,11 +57,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>silectis-public.snapshots</id>
-            <url>s3://s3-us-east-1.amazonaws.com/silectis-maven-public/snapshots</url>
+            <url>s3://silectis-maven-public/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>silectis-public.releases</id>
-            <url>s3://s3-us-east-1.amazonaws.com/silectis-maven-public/releases</url>
+            <url>s3://silectis-maven-public/releases</url>
         </repository>
     </distributionManagement>
 
