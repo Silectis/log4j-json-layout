@@ -30,11 +30,13 @@
         <junit.version>4.11</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <mockito.version>1.9.5</mockito.version>
-        <slf4j.version>1.7.1</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
+
+        <maven-s3-wagon.version>1.3.1</maven-s3-wagon.version>
     </properties>
 
     <issueManagement>
-        <url>https://github.com/JetBrains/log4j-json-layout/issues</url>
+        <url>https://github.com/Silectis/log4j-json-layout/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
@@ -47,17 +49,20 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/JetBrains/log4j-json-layout</url>
-        <connection>scm:git:git://github.com/JetBrains/log4j-json-layout</connection>
-        <developerConnection>scm:git:git@github.com:JetBrains/log4j-json-layout</developerConnection>
+        <url>https://github.com/Silectis/log4j-json-layout</url>
+        <connection>scm:git:git://github.com/Silectis/log4j-json-layout</connection>
+        <developerConnection>scm:git:git@github.com:Silectis/log4j-json-layout</developerConnection>
     </scm>
 
     <distributionManagement>
-      <repository>
-        <id>repo.labs.intellij.net</id>
-        <name>repo.labs.intellij.net-releases</name>
-        <url>http://repo.labs.intellij.net/thirdparty</url>
-      </repository>
+        <snapshotRepository>
+            <id>silectis-public.snapshots</id>
+            <url>s3://s3-us-east-1.amazonaws.com/silectis-maven-public/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>silectis-public.releases</id>
+            <url>s3://s3-us-east-1.amazonaws.com/silectis-maven-public/releases</url>
+        </repository>
     </distributionManagement>
 
     <dependencies>
@@ -174,5 +179,12 @@
                 </executions>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>com.github.seahen</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>${maven-s3-wagon.version}</version>
+            </extension>
+        </extensions>
     </build>
 </project>
